@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wibe</title>
+
+    <style>
+        body{
+            background-size: cover;
+            /* background: linear-gradient(220deg, rgb(0, 100, 111), rgb(129, 56, 22), rgb(121, 0, 123)) no-repeat center fixed; */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-image: url('https://www.shutterstock.com/blog/wp-content/uploads/sites/5/2020/02/Usign-Gradients-Featured-Image.jpg')
+        }
+
+        .gradient {
+            text-shadow: 3px 3px 1px #ffffff2b;
+            color: transparent;    
+            -webkit-background-clip: text;
+            background-clip: text;
+            background-image: linear-gradient(to top, rgb(0, 174, 255), rgb(0, 174, 255), rgb(230, 0, 255), rgb(255, 0, 102), rgb(255, 0, 102));
+            
+
+        }
+
+        .header_block{
+            width: 100%;
+            height: 10%;
+            /* background-color: rgba(31, 31, 31, 0.267); */
+            background-color: rgba(31, 31, 31, 0.174);
+        }
+
+        .side_buttons_block {
+            width: 180px;
+            height: 210px;
+            background-color: rgba(7, 7, 7, 0.312);
+            margin-top: 5%;
+            font-size: 30px;
+            color:rgb(255, 170, 0);
+            position: fixed;
+        }
+
+        .default_text_gradient {
+            color: transparent;    
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-shadow: 1px 1px 0px #ffffff2b;
+            background-image: linear-gradient(to top, rgb(230, 0, 255), rgb(0, 174, 255));
+            text-align: center;
+            font-size: 40px;
+            margin-top: -4%;
+            font-weight:bold
+        }
+
+        .tab_text {
+            color: transparent;    
+            -webkit-background-clip: text;
+            background-clip: text;
+            text-shadow: 1px 1px 0px #ffffff2b;
+            background-image: linear-gradient(to bottom, rgb(0, 174, 255), rgb(255, 0, 102), rgb(0, 174, 255));
+            text-align: center;
+            font-size: 40px;
+            margin-top: -4%;
+            font-weight:bold;
+            transition: 0.5s;
+        }
+
+        .tab_selector {
+            background-color:rgba(230, 39, 251, 0.155);
+            outline-color: rgba(255, 0, 162, 0.734);
+            outline-style:ridge;
+            outline-width: 0px;
+            cursor:pointer;
+            
+        }
+
+        .tab_text:hover {
+            transform: scale(1.1);
+        }
+
+        .main_content_bg {
+            margin-left: 15%;
+            margin-top: 0%;
+            width: 70%;
+            height: 100%;
+            background-color: rgba(31, 31, 31, 0.018);
+        }
+
+        .video_img {
+            width: 225px;
+            height: 225px;
+            float: left;
+
+        }
+
+        .video_object {
+            /* border: red 1px solid; */
+            background-color: rgba(31, 31, 31, 0.542);
+            margin-top: 1%;
+            width: 100%;
+            height: 225px;
+
+        }
+
+        .video_title {
+            font-size: 40px;
+            color: rgb(255, 0, 102);
+            text-shadow: 1px 1px 5px #d000ff;
+            font-weight: bold;
+            height: 20px;
+        }
+
+        .video_duration {
+            font-size: 40px;
+            color: rgb(255, 0, 102);
+            text-shadow: 1px 1px 5px #d000ff;
+            margin-top: 100px;
+        }
+
+        .video_text {
+            font-size: 30px;
+            color: rgb(0, 174, 255);
+            /* text-shadow: 1px 1px 0px rgb(255, 0, 102); */
+            margin-top: -10%;
+            display: inline-block;
+            padding-left: 5px;
+        }
+
+
+        .play_button {
+            transition: 0.0s;
+
+        }
+
+        .play_button:hover {
+
+            filter: invert(63%) sepia(52%) saturate(7292%) hue-rotate(320deg) brightness(101%) contrast(101%);
+            transform: scale(1.1);
+            cursor:pointer;        
+        }
+
+        .search_field_bg {
+            background-color: rgba(31, 31, 31, 0.542);
+            margin-top: 1%;
+            width: 100%;
+            height: 100px;
+        }
+
+        input{
+            margin-top: 1%;
+            margin-left: 1%;
+            width: 97.25%;
+            height: 70%;
+            font-size: 50px;
+            background-color: rgba(31, 31, 31, 0.542);
+            font-weight: bold;
+            transition: 0.5s;
+            
+        }
+
+        input:hover{
+            background-color: rgba(255, 0, 102, 0.659);
+        }
+        input:focus {
+            outline: none;
+  	        /* border: 3px solid rgba(0, 0, 0, 0.662); */
+            background-color: rgba(255, 0, 102, 0.659);
+        }
+
+
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: rgba(0, 0, 0, 0.695);;
+        opacity: 1; /* Firefox */
+        }
+        /* input:focus */
+
+        .audio_widget {
+            position:fixed;
+            width: 70%;
+            margin-left: 14.5%;
+            margin-top: 31.5%;
+            height: 8%;
+            background-color: rgba(31, 31, 31, 0.921);
+        }
+
+        .sound_timeline {
+            width: 40%;
+            margin-left: 38%;
+            -webkit-appearance: none;
+            background-color: rgba(31, 31, 31, 0.316);
+        }
+
+        .sound_timeline:hover {
+            background-color: rgba(164, 164, 164, 0.459);
+        }
+
+        .sound_timeline:focus {
+            background-color: rgba(164, 164, 164, 0.459);
+        }
+
+
+        .sound_timeline::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 5px;
+            height: 40px;
+            background: rgb(255, 0, 157);
+        }
+
+
+
+
+        .sound_volume {
+            width: 12%;
+            margin-left: 0%;
+            -webkit-appearance: none;
+            background-color: rgba(31, 31, 31, 0.316);
+        }
+
+        .sound_volume:hover {
+            background-color: rgba(164, 164, 164, 0.459);
+        }
+
+        .sound_volume:focus {
+            background-color: rgba(164, 164, 164, 0.459);
+        }
+
+
+        .sound_volume::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 150px;
+            background: rgb(255, 0, 157);
+        }
+
+
+        /* .lyrics_bg {
+            position:fixed;
+            overflow: auto;
+            width: 69.5%;
+            margin-top: -10%;
+            height: 90%;
+            background-color: rgba(31, 31, 31, 0.87);
+        } */
+
+        /* .close_lyrics {
+            color:rgb(51, 51, 51);
+            text-shadow: 3px 3px 1px #fd0255ac;
+            background-color: rgba(255, 29, 119, 0.59);
+        }
+
+        .close_lyrics:hover {
+            cursor: pointer;
+            background-color: rgba(255, 29, 119, 0.953)
+        }
+
+        .lyrics_response 
+        {
+            color:rgba(255, 29, 119, 0.953);
+            word-break: break-all;
+        }
+
+        .search_lyrics_input
+        {
+            width: 100%;
+            height: 10%;
+            background-color: rgba(31, 31, 31, 0.87);
+        }
+
+        .lyrics_input
+        {
+            transition: 0s;
+            font-size: 30px;
+        } */
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #434343; 
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: rgb(88, 1, 43);
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(174, 0, 84);
+        }
+
+        .tracks_bg 
+        {
+            background-color: rgba(31, 31, 31, 0.316);
+            width: 100%;
+            height: 100%;
+            
+        }
+
+        .track_info 
+        {
+            background-color: rgba(31, 31, 31, 0.573);
+            width: 90%;
+            height: 60px;
+            margin-left: 5%;
+            margin-top: 5%;
+            display: block
+
+        }
+
+
+
+        .playlist_name
+        {
+            font-size: 40px;
+            color:rgb(255, 0, 102);
+            font-weight: 900;
+            padding-top: 9px;
+            padding-left: 5px;
+            cursor: pointer;
+            transition: 0.2s;
+            
+            
+        }
+
+        .playlist_name:hover
+        {
+            background-color: rgba(29, 29, 29, 0.37);
+        }
+
+        .add_playlist_playlists
+        {
+            background-color: rgba(29, 29, 29, 0.526);
+            font-size: 40px;
+            color:rgb(255, 0, 102);
+            height: 50px;
+            font-weight: 800;
+            text-align: center;
+            padding-top: 9px;
+            padding-bottom: 30px;
+            cursor: pointer;
+            transition: 0.2s;
+            
+            
+        }
+
+        .add_playlist_playlists:hover
+        {
+            background-color: rgba(56, 56, 56, 0.65);
+        }
+
+        .playlistNameInput
+        {
+            width: 60%;
+            height: 50px;
+            font-size: 30px;
+        }
+
+        .playlists_picker
+        {
+            background-color: rgba(31, 31, 31, 0.5);
+            width: 20%;
+            height: 100%;
+            /* margin-left: 102%; */
+            margin-left: 66%;
+            word-wrap: break-word;
+            overflow-y: auto;
+            margin-top: -80px;    
+            position: absolute;   
+            
+        }
+
+
+        .playlists_bg
+        {
+            width: 95%;
+            margin-left: -2%;
+            margin-top: 0%;
+            height: 60%;
+            background-color: rgba(29, 29, 29, 0.526);
+            /* position: fixed; */
+        }
+
+        .footer
+        {
+            background-color: rgba(31, 31, 31, 0.4);
+            width: 101.51%;
+            margin-left: -1%;
+            height: 0px;
+            margin-top: 50%;
+        }
+
+        .loader
+        {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(16, 16, 16, 0.5);
+        }
+
+
+        </style>
+
+
+</head>
+<body>
+    <div id="loader" class="loader" style="visibility: hidden; z-index: 1001">
+        <img src="https://www.mcoin.ru/img/icon-loader.gif" width="900px" height="900px" style="margin-top: -100px;display: block;margin-left: auto;margin-right: auto;filter: invert(63%) sepia(52%) saturate(7292%) hue-rotate(320deg) brightness(101%) contrast(101%);">
+    </div>
+    <div class="header_block">
+        <h1 class="gradient" style="text-align: center;font-size: 90px;margin-top: -0.8%;font-weight:bold">Wibe</h1>
+        <div id="pageFunc"></div>
+    </div>
+
+    <!-- TAB SELECTOR -->
+    <div class="side_buttons_block">
+
+        <div id="tab_selector_search" class="tab_selector" onclick="pageFuncValue('search')">
+            <h3 class="tab_text" style="visibility: visible;">Search</h3>
+        </div>
+
+
+        <div id="tab_selector_playlists" class="tab_selector" onclick="pageFuncValue('playlists')">
+            <h3 class="tab_text" style="visibility: visible;">Playlists</h3>
+        </div>
+
+
+        <div id="tab_selector_tracks" class="tab_selector" onclick="pageFuncValue('tracks')">
+            <h3 class="tab_text" style="visibility: visible;">Tracks</h3>
+        </div>
+
+
+    </div>
+    <!-- ^ TAB SELECTOR ^ -->
+
+
+
+
+
+
+    <!-- AUDIO WIDGET -->
+
+    <div id="audio_widget" class="audio_widget" style="visibility: hidden; z-index: 1000;">
+        <div style="width:100%;height:150px;margin-top: -150px;background-color:#d000ff00"></div>
+        <img id="pauseButton" onclick="pauseMusic()" src="https://icon-library.com/images/free-pause-icon/free-pause-icon-14.jpg" style="cursor:pointer;width: 50px; height: 50px;"></button>
+        <marquee direction="left" scrollamount="-1" scrolldelay="150" id="audio_title_value" style="display:inline;font-size: 30px;color:rgb(255, 0, 157);position: absolute; margin-top: 15px;margin-left: 2px;width: 35%"></marquee>
+        <!-- <h2 id="audio_title_value" style="display:inline;font-size: 30px;color:rgb(255, 0, 157);position: absolute; margin-top: 15px;margin-left: 2px;" ></h2> -->
+        <input class="sound_timeline" id="sound_timeline_id" type="range" min="1" max="100" oninput="changeTimeline(this.value)">
+        <input class="sound_volume" id="sound_volume" type="range" min="1" max="100" value="20" oninput="changeVolume(this.value)">
+        <div style="display:inline">
+            <p id="replay_icon" onclick="setReplay()" style="cursor: pointer; font-size: 40px; color:white;margin-top: -5%; margin-left: 96%; font-family: Verdana, sans-serif;">∞</p>
+        </div>
+    </div>
+
+    <!-- ^ AUDIO WIDGETR ^ -->
+
+
+
+
+    <!-- MAIN CONTENT -->
+    
+    <div id="main_content">
+
+        <div class="main_content_bg" id="main_content_bg">
+
+            
+
+
+
+            
+
+        </div>     
+        
+        <div class="footer">
+        </div>
+        
+    </div>
+
+
+
+    <script>
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+        pageFuncValue("search")
+
+        });
+
+        const pageFunc = document.getElementById("pageFunc")
+        const tab_search = document.getElementById("tab_selector_search")
+        const tab_playlists = document.getElementById("tab_selector_playlists")
+        const tab_tracks = document.getElementById("tab_selector_tracks")
+
+        var audio_title;
+        var audio;
+        var audio_volume = 0.2;
+        var replay = false
+
+
+        function makeGet(get_link)
+        {
+            var xhr = new XMLHttpRequest()
+            xhr.open("get", get_link, false)
+            xhr.send()
+            return xhr
+
+            // Make GET request through this function using code below.
+
+            // resp = makeGet('path')
+
+            // json_results = JSON.parse(resp.response)
+
+            // console.log(json_results)
+
+        }
+
+        function makePost(post_link, js_request)
+        {
+            var xhr = new XMLHttpRequest();
+            xhr.open("post", post_link, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+
+            // console.log(js_request)
+            xhr.send(JSON.stringify(js_request))
+
+            // console.log("xhr send success")
+
+            return xhr
+
+
+            // Make POST request through this function using code below.
+
+//************************************************************** 
+
+            // js_request = {
+            //     request: value
+            // }
+
+            // resp = makePost('path', js_request)
+
+            // resp.onload = () => {
+            //     // console.log(resp.response)
+            //     function(resp.response)
+            // }
+
+//************************************************************** 
+
+        }
+        
+        // Page Info = Search
+
+        function pageFuncValue(value)
+        {
+            const main = document.getElementById("main_content_bg")
+            if (value == "search") 
+            {
+                pageFunc.innerHTML = '<h2 class="default_text_gradient">Search</h2>'
+                tab_search.style.visibility = "visible"
+                tab_playlists.style.visibility = "hidden"
+                tab_tracks.style.visibility = 'hidden'
+                main.innerHTML = '<div id="search_field" class="search_field_bg"><input id="search_field_input" type="text" placeholder="Search..." onkeydown="checkForEnter(event)"></div><div id="all_videos"><p1 style="color: rgba(255, 0, 106, 0.748);text-align: center;font-size: 120px;font-weight: 900; margin-top: 5%;display: block;margin-left: auto;margin-right: auto;">by<br><img src="https://brandslogos.com/wp-content/uploads/images/large/youtube-logo.png" width="280px" height="130px" style="margin-top: 20px;"></p1></div>'
+            }
+
+            if (value == "playlists") 
+            {
+                pageFunc.innerHTML = '<h2 class="default_text_gradient">Playlists</h2>'
+                tab_search.style.visibility = 'hidden'
+                tab_playlists.style.visibility = 'visible'
+                tab_tracks.style.visibility = 'hidden'
+
+                resp = makeGet('checkPlaylists')
+
+                json_results = JSON.parse(resp.response)
+
+                result = json_results.result
+                // console.log(json_results)
+
+                if (json_results.status != "Failed")
+                {
+
+                    var all_playlists = ""
+                    for (let i=0; i < result.length; i++)
+                    {
+                        all_playlists = all_playlists + '<div class="playlist_name" onclick="choosePlaylistFunction(\'' + result[i].playlist_title + '\')">' + result[i].playlist_title + '</div>';
+                    }
+
+                    main.innerHTML = '<div class="playlists_bg"><h1 onclick="addSongsToPlaylist()" id="playlistTitle" style="color:rgb(255, 0, 102);text-align: left; padding-left: 20px; padding-top: 5px; font-size: 50px; background-color: rgba(31, 31, 31, 0.4); cursor: pointer;">Playlists</h1><div id="removePlaylistButton" onclick="removePlaylist()" style="width: 60px; visibility: hidden"><h1 style="color: white; font-size: 40px; font-family: Arial, Helvetica, sans-serif; margin-top: -90px; margin-left: 960px">X</h1></div><div id="playlists_picker" class="playlists_picker"><div id="newPlaylistButton" class="add_playlist_playlists" onclick="newPlaylistPressed()">New playlist</div>' + all_playlists + '</div><div id="inner_content"></div></div>'
+
+                }
+
+                else
+                {
+                    main.innerHTML = '<div class="playlists_bg"><h1 onclick="addSongsToPlaylist()" id="playlistTitle" style="color:rgb(255, 0, 102);text-align: left; padding-left: 20px; padding-top: 5px; font-size: 50px; background-color: rgba(31, 31, 31, 0.4); cursor: pointer;">Playlists</h1><div id="removePlaylistButton" onclick="removePlaylist()" style="width: 60px; visibility: hidden"><h1 style="color: white; font-size: 40px; font-family: Arial, Helvetica, sans-serif; margin-top: -90px; margin-left: 960px">X</h1></div><div id="playlists_picker" class="playlists_picker"><div id="newPlaylistButton" class="add_playlist_playlists" onclick="newPlaylistPressed()">New playlist</div></div><div id="inner_content"></div></div>'
+                    newPlaylistPressed()
+                    document.getElementById("playlistNameInput").value = "New Playlist"
+                }
+                
+               
+            }
+
+            if (value == "tracks") 
+            {
+                pageFunc.innerHTML = '<h2 class="default_text_gradient">Tracks</h2>'
+                tab_search.style.visibility = 'hidden'
+                tab_playlists.style.visibility = 'hidden'
+                tab_tracks.style.visibility = 'visible'
+
+                main.innerHTML = '<div id="tracks_bg" class="tracks_bg"></div>'
+
+                resp = makeGet('checkTracks')
+
+                json_results = JSON.parse(resp.response)
+                result = json_results.result
+
+                if (json_results.status != "Failed")
+                {
+                    html_result = ""
+
+                    for (let i = 0; i < result.length; i++) 
+                    {
+                        // console.log(result[i])
+
+                        let tittle = result[i].title.slice(0, 36)
+                        html_result = html_result +  '<div id="track_' + i + '" ondragstart="onDragStartFunc(event)" ondrop="onDropFunc(event)" draggable="true" ondragover="allowDrop(event)" class="track_info"><img draggable="false" src="https://icon-library.com/images/play-icon-transparent-background/play-icon-transparent-background-22.jpg" style="cursor: pointer;" onclick="findTrack(\'' + result[i].link  + '\', \'' + result[i].title + '\', \'multitude\')" width="60px", height="60px" style="margin-top: 0.8%"><h1 id="' + result[i].title + '" style="color: rgb(253, 10, 103); font-size: 40px; margin-top: -60px; margin-left: 80px; ">' + tittle +'</h1><h1 style="color: white; margin-top: -71px; margin-left: 95%; font-size: 40px; font-weight: 500; font-family: Arial, Helvetica, sans-serif; cursor: pointer;" onclick="removeTrack(\'track_' + i +'\')" draggable="false">X</h1></div>'
+                        
+                    
+                    }
+
+                    document.getElementById("tracks_bg").innerHTML = html_result
+
+                }
+
+            }
+
+
+        }
+
+        
+        function checkForEnter(event)
+        {
+            if (event.keyCode == 13) 
+            { 
+                // console.log('entered pressed.')
+                field_value = document.getElementById("search_field_input").value
+
+                if (field_value == "")
+                {
+                    document.getElementById("all_videos").innerHTML =  '<p1 style="color: rgba(255, 0, 106, 0.748);text-align: center;font-size: 120px;font-weight: 900; margin-top: 5%;display: block;margin-left: auto;margin-right: auto;">by<br><img src="https://brandslogos.com/wp-content/uploads/images/large/youtube-logo.png" width="280px" height="130px" style="margin-top: 20px;"></p1>'
+                    return
+                }
+
+                document.getElementById("all_videos").innerHTML = '<img src="https://www.mcoin.ru/img/icon-loader.gif" width="900px" height="900px" style="margin-top: -300px;display: block;margin-left: auto;margin-right: auto;filter: invert(63%) sepia(52%) saturate(7292%) hue-rotate(320deg) brightness(101%) contrast(101%);">'
+
+                postSearch(field_value)
+
+
+            }
+        }
+
+        function postSearch(field_value)
+        {
+
+            js_request = {
+                request: field_value
+            }
+
+            resp = makePost('search_media', js_request)
+
+            resp.onload = () => {
+                // console.log(xhr.response)
+                showYouTubeResults(resp.response)
+            }
+
+
+        }
+
+        function showYouTubeResults(results)
+        {
+            json_results = JSON.parse(results)
+            // console.log(json_results)
+            // console.log("start showytresults")
+            html_result = ""
+            for (let i = 0; i < json_results.response.length; i++) 
+            {
+                // console.log(json_results.response[i].thumbnails[0].url)
+                html_result = html_result +  '<div id="video_object" class="video_object"><div><img class="video_img" src=' + json_results.response[i].thumbnails[0].url + '><img class="play_button" onclick="findTrack(\'' + json_results.response[i].link  + '\', \'' + json_results.response[i].title + '\', \'single\')" src="https://icon-library.com/images/play-icon-transparent-background/play-icon-transparent-background-22.jpg" style="height: 200px; width: 200px; margin-left: -215px; margin-top: 10px;"><h1 class="video_title" style="margin-top: -220px;">' + json_results.response[i].title + '</h1><h2 class="video_duration">' + json_results.response[i].duration + '</h2><h3 class="video_text" style="cursor: pointer" onclick="addNewTrack(\'' + json_results.response[i].title  + '\', \'' + json_results.response[i].link + '\', event)">Add</h3><a id="vid_link" href="' + json_results.response[i].link + '"><h3 class="video_text">| Link</h3></a></div></div>'
+                
+            }
+
+
+
+            document.getElementById("all_videos").innerHTML = html_result
+
+        }
+
+        function findTrack(yt_link, yt_title, timeline_type) 
+        {
+            // console.log(yt_link)
+
+            console.log("findTrack start.")
+
+            js_request = {
+                request: yt_link
+            }
+
+            resp = makePost('play_track', js_request)
+
+            resp.onload = () => {
+                console.log("findTrack got response, trying to playTrack()")
+                playTrack(resp.response, yt_title, timeline_type)
+                }
+            
+
+        }
+
+
+        function playTrack(audio_link, title, timeline_type) 
+        {
+
+            // console.log(audio_link)
+            console.log("playTrack() start.")
+            sound = JSON.parse(audio_link).sound
+            // console.log(sound)
+
+            document.getElementById("audio_widget").style.visibility = "visible"
+
+            try 
+            {
+                console.log("Audio paused.")
+                audio.pause()
+            }
+            catch{
+                console.log("Nothing to pause.")
+            }
+
+            audio_title = title
+            document.getElementById("audio_title_value").innerHTML = audio_title
+
+            audio = new Audio(sound)
+            audio.volume = audio_volume
+
+            console.log("All properties set.")
+
+            audio.play()
+            const pauseIcon = "https://icon-library.com/images/free-pause-icon/free-pause-icon-14.jpg"
+            const pauseButton = document.getElementById("pauseButton")
+            pauseButton.src = pauseIcon
+            defaultChangingTimeline(audio_link, title, timeline_type)
+
+
+            
+        }
+
+        function changeVolume(volume_value) 
+        {
+
+            audio_volume = volume_value / 100
+            try 
+            {
+                audio.volume = audio_volume
+            }
+            catch {
+                console.log("Audio is not exist yet.")
+            }
+
+        }
+
+        function delay(n){
+            return new Promise(function(resolve){
+                setTimeout(resolve,n*1000);
+            });
+        }
+
+        async function defaultChangingTimeline(audio_link, title, type)
+        {
+            // console.log(audio_link)
+            const timeline = document.getElementById("sound_timeline_id")
+            
+            var current_timeline_value = audio.currentTime / audio.duration
+
+            timeline.value = current_timeline_value * 100
+            // console.log(current_timeline_value * 100)
+
+            if (current_timeline_value * 100 >= 100) 
+            {
+                if (type == "single" && replay == true)
+                {
+                    // console.log("Play single track, replay is set to true.")
+                    await playTrack(audio_link, title, "single")
+                    
+                    return
+                }
+
+                else if (type == "multitude" && replay == true)
+                {
+                    // console.log("Play multitude track, replay is set to true.")
+
+                    await playTrack(audio_link, title, "multitude")
+                    return
+                }
+
+                else if (type == "multitude" && replay == false)
+                {
+                    checkNextSong(title, type)
+                    return
+                }
+
+                else if (type == "playlist" && replay == false)
+                {
+                    checkNextSong(title, type)
+                    return
+                }
+
+                else if (type == "playlist" && replay == true)
+                {
+                    await playTrack(audio_link, title, "playlist")
+                    return
+                }
+
+            }
+
+            await delay(4);
+
+            // console.log("going next iteration of timeline.")
+            defaultChangingTimeline(audio_link, title, type)
+
+            return
+
+        }
+
+        function setReplay()
+        {
+            var replay_button = document.getElementById("replay_icon")
+            if (replay_button.style.color == "white"){
+                // console.log("white")
+                replay_button.style.color = "rgb(255, 0, 102)"
+            }
+            else
+            {
+                replay_button.style.color = "white"
+
+            }
+            replay = !replay
+            // console.log(replay)
+        }
+
+        function changeTimeline(input_value) 
+        {
+
+            var one_percent = audio.duration / 100
+            var clicked_seconds = one_percent * input_value
+            var result = clicked_seconds / audio.duration * 100
+
+            // console.log(result)
+            document.getElementById("sound_timeline_id").value = result
+            audio.currentTime = clicked_seconds
+
+            // console.log(audio.src)
+        }
+
+        function pauseMusic()
+        {
+            const playIcon = "https://icon-library.com/images/play-icon-transparent-background/play-icon-transparent-background-22.jpg"
+            const pauseIcon = "https://icon-library.com/images/free-pause-icon/free-pause-icon-14.jpg"
+
+            const pauseButton = document.getElementById("pauseButton")
+            if (pauseButton.src == pauseIcon) 
+            {
+                audio.pause()
+                pauseButton.src = playIcon
+            }
+            else 
+            {
+                audio.play()
+                pauseButton.src = pauseIcon
+            }
+            
+        }
+
+        function addNewTrack(title, link, event)
+        {
+
+            event.path[0].style.color = "rgb(255, 0, 102)"
+
+            js_request = {
+                track_title: title,
+                yt_link: link
+            }
+
+            resp = makePost('addNewTrack', js_request)
+
+        }
+
+        // ondragstart="onDragFunc(event)" ondrop="onDropFunc(event)" ondragover="allowDrop(event)"
+
+        function onDragStartFunc(event)
+        {
+            event.dataTransfer.setData("first_div", event.target.id)
+        }
+
+        function allowDrop(event) {
+            // console.log("allow drop")
+
+            event.preventDefault();
+        }
+
+
+        function onDropFunc(event) {
+            // console.log("drop.")
+            event.preventDefault();
+            var first_div_id = event.dataTransfer.getData("first_div")
+            var second_div_id = event.target.parentNode.id
+
+            var first_div = document.getElementById(first_div_id)
+            var second_div = document.getElementById(second_div_id)
+            var first_div_double = first_div.innerHTML
+
+
+
+            first_div.innerHTML = second_div.innerHTML            
+            second_div.innerHTML = first_div_double        
+            
+            // console.log(second_div.childNodes[1].id)
+            // console.log(first_div.id)
+
+            resp = makeGet('checkTracks')
+
+            json_results = JSON.parse(resp.response)
+
+            result = json_results.result
+
+            // console.log(result)
+
+            var first_song_link = result[first_div.id.slice(6, 10)].link
+            var second_song_link = result[second_div.id.slice(6, 10)].link
+            
+
+            js_request = {
+                first_song_id: first_div.id,
+                first_song_title: second_div.childNodes[1].id,
+                first_song_link: first_song_link,
+                second_song_id: second_div.id,
+                second_song_title: first_div.childNodes[1].id,
+                second_song_link: second_song_link
+            }
+
+
+            resp = makePost('changeTracksOrder', js_request)
+
+
+        }
+
+        function removeTrack(div_id)
+        {
+            // console.log(document.getElementById(div_id))
+            
+            document.getElementById("loader").style.visibility = "visible"
+
+            js_request = {
+                track_id: div_id.slice(6, 10)
+            }
+
+
+            resp = makePost('removeTrack', js_request)
+
+            resp.onload = () => {
+                document.getElementById(div_id).remove()
+                document.getElementById("loader").style.visibility = "hidden"
+            }
+        }
+
+        function checkNextSong(song_title, type)
+        {
+            console.log("start checkNextSong: title param is ")
+            console.log(song_title)
+
+
+
+            // console.log("checkTracks json results:")
+            // console.log(json_results)
+
+            
+            if (type == "multitude")
+            {
+                console.log("multitude type for nextsong")
+                resp = makeGet('checkTracks')
+
+                json_results = JSON.parse(resp.response)
+
+                for (let i=0; i < json_results.result.length; i++)
+                {
+                    if (json_results.result[i].title == song_title) 
+                    {
+                        
+                        x = i + 1
+                        
+                        if (x >= json_results.result.length)
+                        {
+                            x = 0
+                        }
+
+                        var nextSong = {title: json_results.result[x].title, link: json_results.result[x].link}
+                        findTrack(nextSong.link, nextSong.title, "multitude")
+                        return
+                    }
+                }   
+            }
+
+            else if (type == "playlist")
+            {
+                console.log("playlist type for nextsong")
+                var pl_title = document.getElementById('playlistTitle').innerHTML
+
+                resp = makeGet('checkPlaylists')
+                json_results = JSON.parse(resp.response)
+                console.log(json_results)
+                
+                for (let i=0; i < json_results.result.length; i++)
+                {
+                    console.log(json_results.result[i].playlist_title)
+                    if (json_results.result[i].playlist_title == pl_title)
+                    {
+                        console.log(json_results.result[i].content.length)
+                        for (let x=0; x < json_results.result[i].content.length; x++)
+                        {
+                            if (json_results.result[i].content[x].title == song_title)
+                            {
+                                if (x + 1 >= json_results.result[i].content.length)
+                                {
+                                    var nextSong = {title: json_results.result[i].content[0].title, link:json_results.result[i].content[0].link}
+                                    console.log("nextSong is " + nextSong.title)
+                                    findTrack(nextSong.link, nextSong.title, "playlist")
+                                    return
+                                }
+                                else
+                                {
+                                    var nextSong = {title: json_results.result[i].content[x+1].title, link:json_results.result[i].content[x+1].link}
+                                    console.log("nextSong is " + nextSong.title)
+                                    findTrack(nextSong.link, nextSong.title, "playlist")
+                                    return
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+                
+
+            }
+
+            else
+            {
+                console.log("nextsong is undefined.")
+                console.log(type)
+            }
+
+            
+
+        
+        }
+
+        function newPlaylistPressed()
+        {
+            var btn = document.getElementById("newPlaylistButton")
+
+            if (btn.innerHTML != '<input id="playlistNameInput" class="playlistNameInput" type="text" onfocusout="newPlaylistFocusOut()" onkeydown="checkForEnterPlaylist(event)">')
+            {
+                btn.innerHTML = '<input id="playlistNameInput" class="playlistNameInput" type="text" onfocusout="newPlaylistFocusOut()" onkeydown="checkForEnterPlaylist(event)">'
+                document.getElementById("playlistNameInput").focus()
+            }
+
+
+        }
+
+        function newPlaylistFocusOut()
+        {
+            document.getElementById("newPlaylistButton").innerHTML = 'New playlist'
+            // console.log("focus out")
+        }
+
+        function checkForEnterPlaylist(event)
+        {
+            if (event.keyCode == 13) 
+            {
+                var user_input = event.path[0].value
+                console.log("enter presesd")
+                if (user_input != "" && user_input != "Playlists")
+                {
+                    console.log("creating new playlist.")
+
+                    var playlist = '<div class="playlist_name" onclick="choosePlaylistFunction(\'' + user_input + '\')">' + user_input + '</div>';
+                    var all_playlist_html = document.getElementById('playlists_picker').innerHTML
+                    var result = all_playlist_html + playlist
+                    document.getElementById('playlists_picker').innerHTML = result
+
+                    // newPlaylistFocusOut()
+                    console.log("making focus out.")
+                    console.log("made focus out. making js request")
+
+                    js_request = {
+                        playlist_title: user_input
+                    }
+                    
+                    console.log("making post")
+
+                    resp = makePost('addNewPlaylist', js_request)
+
+
+                    resp.onload = () => {
+                        // console.log(resp.response)
+                        document.getElementById('playlists_picker').innerHTML = result
+                        newPlaylistFocusOut()
+                    }
+                    
+
+                }
+            }
+        }
+
+        function choosePlaylistFunction(playlist_title)
+        {
+            document.getElementById("playlistTitle").innerHTML = playlist_title
+            showPlaylistTracks(playlist_title)
+        }
+
+
+        function addSongsToPlaylist()
+        {
+            var playlist_title = document.getElementById("playlistTitle").innerHTML
+
+            if (document.getElementById("inner_content").innerHTML.includes("addSongsToPlaylist"))
+            {
+                document.getElementById("removePlaylistButton").style.visibility = "hidden"
+                showPlaylistTracks(playlist_title)
+            }
+
+            else
+            {
+                if (playlist_title != "Playlists")
+                {
+
+                    js_request = {
+                        playlist_title: playlist_title
+                    }
+
+                    resp = makePost('checkTracksInPlaylist', js_request)
+
+                    resp.onload = () => {
+                        var json_results = JSON.parse(resp.response)
+                        // console.log(json_results)
+
+                        if (json_results.status == "Failed" || json_results.result.length == 0)
+                        {
+                            document.getElementById("playlistTitle").innerHTML = "There are no audio in your Tracks."
+                        }
+                        else
+                        {
+                            document.getElementById("removePlaylistButton").style.visibility = "visible"
+                            const inner_content = document.getElementById("inner_content")
+                            var inner_content_result = ""
+
+                            for (let i=0; i < json_results.result.length; i++)
+                            {
+                                var song_title = json_results.result[i].title.toLowerCase()
+                                
+                                if (song_title.length > 35)
+                                {   
+                                    song_title = song_title.slice(0, 35)
+                                }
+                                
+                                if (json_results.result[i].include == "false")
+                                {
+                                    inner_content_result = inner_content_result + '<div style="cursor: pointer;" onclick="addNewSongToPlaylist(\'' + json_results.result[i].title + '\', \'' + json_results.result[i].link +'\', \'' + playlist_title +'\')"><h1 style="font-size: 40px; color: white; margin-left: 90%; font-family: Arial, Helvetica, sans-serif; font-weight: 700">V</h1><h1 style="color:rgb(255, 0, 102); font-size: 50px; background-color: rgba(31, 31, 31, 0.2); text-align: left; width: 90%; margin-left: 5%; margin-top: -8%;">' + song_title +'</h1></div>'
+                                }
+
+                                else
+                                {
+                                    inner_content_result = inner_content_result + '<div style="cursor: pointer;" onclick="addNewSongToPlaylist(\'' + json_results.result[i].title + '\', \'' + json_results.result[i].link +'\', \'' + playlist_title +'\')"><h1 style="font-size: 40px; color: rgb(255, 20, 120); margin-left: 90%; font-family: Arial, Helvetica, sans-serif; font-weight: 700">V</h1><h1 style="color:rgb(255, 0, 102); font-size: 50px; background-color: rgba(31, 31, 31, 0.2); text-align: left; width: 90%; margin-left: 5%; margin-top: -8%;">' + song_title +'</h1></div>'
+                                }
+                            }
+                            inner_content.innerHTML = '<div id="addSongsToPlaylist">' + inner_content_result + '</div>'
+                        }
+                    }
+                }
+            }  
+        }
+
+        
+        function addNewSongToPlaylist(title, link, playlist_title)
+        {
+
+            js_request = {
+                title: title,
+                link: link,
+                playlist_title: playlist_title
+            }
+
+            if (event.path[0].parentNode.childNodes[0].style.color == "white")
+            {
+                event.path[0].parentNode.childNodes[0].style.color = "rgb(255, 20, 120)"
+            }
+            else
+            {
+                event.path[0].parentNode.childNodes[0].style.color = "white" 
+            }
+
+            resp = makePost('addNewSongToPlaylist', js_request)
+
+            // resp.onload = () => {
+            //     console.log(resp.response)
+            // }
+
+        }
+
+        function showPlaylistTracks(pl_title)
+        {
+
+            document.getElementById("inner_content").innerHTML = ""
+
+            resp = makeGet('checkPlaylists')
+
+            json_results = JSON.parse(resp.response)
+
+            result = json_results.result
+
+            html_result = ""
+
+            
+
+            for (let i=0; i < result.length; i++)
+            {
+                if (result[i].playlist_title == pl_title)
+                {
+                    for (let x=0; x < result[i].content.length; x++)
+                    {
+                        var short_title = result[i].content[x].title.toLowerCase()
+                        if (short_title.length > 38)
+                        {
+                            short_title = short_title.slice(0, 38)
+                        }
+                        html_result = html_result + '<div class="track_info" onclick="findTrack(\'' + result[i].content[x].link +'\', \'' + result[i].content[x].title + '\', \'playlist\')"><img draggable="false" src="https://icon-library.com/images/play-icon-transparent-background/play-icon-transparent-background-22.jpg" style="cursor: pointer;"  width="60px", height="60px" style="margin-top: 0.8%"><h1 style="color: rgb(253, 10, 103); font-size: 40px; margin-top: -60px; margin-left: 80px; ">' + short_title + '</h1></div>'
+                    }
+                }
+            }
+
+            document.getElementById("inner_content").innerHTML = html_result
+            
+        }
+
+        function removePlaylist()
+        {
+            var pl_title = document.getElementById('playlistTitle').innerHTML
+            if (pl_title != "Playlists")
+            {
+                document.getElementById('playlistTitle').innerHTML = "Playlists"
+                document.getElementById("inner_content").innerHTML = ""
+                document.getElementById("removePlaylistButton").style.visibility = "hidden"
+
+                
+                js_request = {
+                    playlist_title: pl_title
+                }
+
+                resp = makePost('removePlaylist', js_request)
+
+                resp.onload = () => {
+                    console.log(resp.response)
+                }   
+
+                console.log(document.getElementById('playlists_picker').childNodes.length)
+
+                for (let i = 1; i < document.getElementById('playlists_picker').childNodes.length; i++)
+                {
+                    if (document.getElementById('playlists_picker').childNodes[i].innerHTML == pl_title)
+                    {
+                        document.getElementById('playlists_picker').childNodes[i].remove()
+                    }
+                }
+
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
